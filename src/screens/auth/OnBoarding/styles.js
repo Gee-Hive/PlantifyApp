@@ -1,7 +1,5 @@
-import {StyleSheet, Dimensions} from 'react-native';
+import {StyleSheet} from 'react-native';
 import colors from '../../../constants/colors';
-
-const {height} = Dimensions.get('window');
 
 const styles = StyleSheet.create({
   container: {
@@ -15,6 +13,7 @@ const styles = StyleSheet.create({
   content: {
     padding: 46,
     paddingTop: 0,
+    backgroundColor: colors.white,
   },
 
   title: {
