@@ -18,6 +18,22 @@ const styles = StyleSheet.create({
     color: colors.purple,
     fontWeight: 'bold',
   },
+
+  row: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginVertical: 16,
+  },
+
+  agreeText: {
+    color: colors.grey,
+    fontSize: 12,
+    marginLeft: 8,
+  },
+
+  link: {
+    textDecorationLine: 'underline',
+  },
 });
 
 export default styles;
