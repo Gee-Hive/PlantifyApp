@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 24,
     paddingVertical: 13,
     borderRadius: 10,
-    color: colors.grey,
+    color: colors.black,
     marginVertical: 12,
     fontSize: 15,
   },
