@@ -12,6 +12,7 @@ import Signup from './screens/auth/Siginup';
 import Home from './screens/app/Home';
 import Tasks from './screens/app/Tasks';
 import AddTasks from './screens/app/AddTasks';
+import {Image, StyleSheet} from 'react-native';
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -57,10 +58,39 @@ const Routes = () => {
   // }
 
   const Tabs = () => (
-    <Tab.Navigator>
-      <Tab.Screen name="Home" component={Home} />
-      <Tab.Screen name="Tasks" component={Tasks} />
-      <Tab.Screen name="AddTasks" component={AddTasks} />
+    <Tab.Navigator screenOptions={{tabBarShowLabel: false, headerShown: false}}>
+      <Tab.Screen
+        name="Home"
+        component={Home}
+        options={{
+          tabBarIcon: ({focused}) => (
+            <Image
+              style={styles.icon}
+              source={
+                focused
+                  ? require('./assets/Home-active.png')
+                  : require('./assets/home-inactive.png')
+              }
+            />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Tasks"
+        component={Tasks}
+        options={{
+          tabBarIcon: ({focused}) => (
+            <Image
+              style={styles.icon}
+              source={
+                focused
+                  ? require('./assets/Calendar-active.png')
+                  : require('./assets/Calendar-inactive.png')
+              }
+            />
+          ),
+        }}
+      />
     </Tab.Navigator>
   );
 
@@ -82,4 +112,10 @@ const Routes = () => {
   );
 };
 
+const styles = StyleSheet.create({
+  icon: {
+    width: 24,
+    height: 24,
+  },
+});
 export default React.memo(Routes);
