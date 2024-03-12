@@ -13,6 +13,8 @@ import Home from './screens/app/Home';
 import Tasks from './screens/app/Tasks';
 import AddTasks from './screens/app/AddTasks';
 import {Image, StyleSheet} from 'react-native';
+import DrawContent from './components/DrawerContent';
+import DrawerContent from './components/DrawerContent';
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -40,22 +42,6 @@ const Routes = () => {
   if (initializing) {
     return null;
   }
-
-  // if (user) {
-  //   const logout = () => {
-  //     auth()
-  //       .signOut()
-  //       .then(() => console.log('User signed out!'));
-  //   };
-  //   return (
-  //     <>
-  //       <Text style={{margin: 40}}>Welcome</Text>
-  //       <Text onPress={logout} style={{margin: 40}}>
-  //         Log out
-  //       </Text>
-  //     </>
-  //   );
-  // }
 
   const Tabs = () => (
     <Tab.Navigator screenOptions={{tabBarShowLabel: false, headerShown: false}}>
@@ -96,7 +82,7 @@ const Routes = () => {
 
   if (user) {
     return (
-      <Drawer.Navigator>
+      <Drawer.Navigator drawerContent={props => <DrawerContent {...props} />}>
         <Drawer.Screen name="Tabs" component={Tabs} />
         <Drawer.Screen name="Home" component={Home} />
       </Drawer.Navigator>
