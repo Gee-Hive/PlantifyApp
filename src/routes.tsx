@@ -55,7 +55,7 @@ const Routes = () => {
               source={
                 focused
                   ? require('./assets/Home-active.png')
-                  : require('./assets/home-inactive.png')
+                  : require('./assets/Home-inactive.png')
               }
             />
           ),
@@ -82,9 +82,12 @@ const Routes = () => {
 
   if (user) {
     return (
-      <Drawer.Navigator drawerContent={props => <DrawerContent {...props} />}>
+      <Drawer.Navigator
+        screenOptions={{headerShown: false}}
+        drawerContent={props => <DrawerContent {...props} />}>
         <Drawer.Screen name="Tabs" component={Tabs} />
         <Drawer.Screen name="Home" component={Home} />
+        <Drawer.Screen name="AddTasks" component={AddTasks} />
       </Drawer.Navigator>
     );
   }

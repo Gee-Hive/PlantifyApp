@@ -1,13 +1,20 @@
 import React from 'react';
 
-import {SafeAreaView, Text} from 'react-native';
+import {SafeAreaView, ScrollView, Text} from 'react-native';
 import styles from './styles';
-import Button from '../../../components/Button';
+import Header from '../../../components/Header';
+import PlusIcon from '../../../components/PlusIcon';
 
-const Home = ({navigation}) => {
+const Home = () => {
   return (
     <SafeAreaView style={styles.container}>
-      <Text>Home</Text>
+      <Header title="Home" />
+
+      <ScrollView>
+        <Text>Home</Text>
+      </ScrollView>
+
+      <PlusIcon />
     </SafeAreaView>
   );
 };

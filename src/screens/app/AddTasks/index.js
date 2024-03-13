@@ -1,13 +1,24 @@
 import React from 'react';
 
-import {SafeAreaView, Text} from 'react-native';
+import {Image, Pressable, SafeAreaView} from 'react-native';
 import styles from './styles';
-import Button from '../../../components/Button';
 
 const AddTasks = ({navigation}) => {
+  const onHandleBack = () => {
+    navigation.goBack();
+  };
+
   return (
     <SafeAreaView style={styles.container}>
-      <Text>AddTasks</Text>
+      <Pressable
+        style={styles.backContainer}
+        hitSlop={8}
+        onPress={onHandleBack}>
+        <Image
+          style={styles.backIcon}
+          source={require('../../../assets/back.png')}
+        />
+      </Pressable>
     </SafeAreaView>
   );
 };

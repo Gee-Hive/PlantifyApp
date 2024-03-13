@@ -1,13 +1,21 @@
 import React from 'react';
 
-import {SafeAreaView, Text} from 'react-native';
+import {SafeAreaView, ScrollView, Text} from 'react-native';
 import styles from './styles';
 import Button from '../../../components/Button';
+import Header from '../../../components/Header';
+import PlusIcon from '../../../components/PlusIcon';
 
-const Tasks = ({navigation}) => {
+const Tasks = () => {
   return (
     <SafeAreaView style={styles.container}>
-      <Text>Tasks</Text>
+      <Header title="Tasks" />
+
+      <ScrollView>
+        <Text>Tasks</Text>
+      </ScrollView>
+
+      <PlusIcon />
     </SafeAreaView>
   );
 };
