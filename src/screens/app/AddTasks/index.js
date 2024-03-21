@@ -6,9 +6,11 @@ import Title from '../../../components/Title';
 import Input from '../../../components/Input';
 import Categories from '../../../components/Categories';
 import {categories} from '../../../constants/categories';
+import DateInput from '../../../components/DateInput';
 
 const AddTasks = ({navigation}) => {
   const [category, setCategory] = useState();
+  const [deadline, setDeadline] = useState(new Date());
   const onHandleBack = () => {
     navigation.goBack();
   };
@@ -34,7 +36,9 @@ const AddTasks = ({navigation}) => {
         onCategoryPress={setCategory}
       />
 
-      <Text style={styles.label}>type</Text>
+      <Text style={styles.label}> Deadline</Text>
+
+      <DateInput value={deadline} onChange={setDeadline} />
     </SafeAreaView>
   );
 };
