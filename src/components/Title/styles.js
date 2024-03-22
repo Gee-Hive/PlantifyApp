@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
   thin: {
     fontWeight: '300',
     fontSize: 24,
-    coloR: colors.purple,
+    color: colors.purple,
     paddingHorizontal: 24,
   },
 });
