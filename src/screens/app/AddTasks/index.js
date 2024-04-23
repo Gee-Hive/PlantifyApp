@@ -19,10 +19,12 @@ import {categories} from '../../../constants/categories';
 import DateInput from '../../../components/DateInput';
 import Button from '../../../components/Button';
 import moment from 'moment';
-import {useSelector} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
+import {setToUpdate} from '../../../store/tasks';
 
 const AddTasks = ({navigation}) => {
   const user = useSelector(state => state.user.data);
+  const dispatch = useDispatch();
   const [title, setTitle] = useState('');
   const [category, setCategory] = useState();
   const [deadline, setDeadline] = useState(new Date());
@@ -56,6 +58,7 @@ const AddTasks = ({navigation}) => {
       })
       .then(() => {
         setLoading(false);
+        dispatch(setToUpdate());
         setTitle('');
         setDeadline(new Date());
         setCategory(null);

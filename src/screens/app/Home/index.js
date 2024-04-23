@@ -12,6 +12,7 @@ import {setTasks} from '../../../store/tasks';
 const Home = () => {
   const user = useSelector(state => state.user.data);
   const tasks = useSelector(state => state.tasks.data);
+  const toUpdate = useSelector(state => state.tasks.toUpdate);
 
   const dispatch = useDispatch();
 
@@ -37,7 +38,7 @@ const Home = () => {
         });
         dispatch(setTasks(tasksList));
       });
-  }, [user, dispatch]);
+  }, [user, toUpdate, dispatch]);
 
   return (
     <SafeAreaView style={styles.container}>

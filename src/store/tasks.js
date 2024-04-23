@@ -4,6 +4,7 @@ export const tasksSlice = createSlice({
   name: 'tasks',
   initialState: {
     data: null,
+    toUpdate: null,
   },
   reducers: {
     setTasks: (state, action) => {
@@ -13,10 +14,14 @@ export const tasksSlice = createSlice({
       // immutable state based off those changes
       state.data = action.payload;
     },
+
+    setToUpdate: state => {
+      state.toUpdate = Math.random();
+    },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const {setTasks} = tasksSlice.actions;
+export const {setTasks, setToUpdate} = tasksSlice.actions;
 
 export default tasksSlice.reducer;
