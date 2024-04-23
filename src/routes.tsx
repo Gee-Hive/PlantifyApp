@@ -13,22 +13,26 @@ import Home from './screens/app/Home';
 import Tasks from './screens/app/Tasks';
 import AddTasks from './screens/app/AddTasks';
 import {Image, StyleSheet} from 'react-native';
-import DrawContent from './components/DrawerContent';
+// import DrawContent from './components/DrawerContent';
 import DrawerContent from './components/DrawerContent';
+import {setUser} from './store/user';
+import {useDispatch, useSelector} from 'react-redux';
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
 const Tab = createBottomTabNavigator();
 
 const Routes = () => {
+  const dispatch = useDispatch();
+  const user = useSelector(state => state.user.data);
+
   // Set an initializing state whilst Firebase connects
   const [initializing, setInitializing] = useState(true);
-  const [user, setUser] = useState();
 
   console.log('user :>> ', user);
   // Handle user state changes
   function onAuthStateChanged(user) {
-    setUser(user);
+    dispatch(setUser(user));
     if (initializing) {
       setInitializing(false);
     }
