@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {SafeAreaView, ScrollView, View} from 'react-native';
+import {SafeAreaView, ScrollView, TouchableOpacity, View} from 'react-native';
 import firestore from '@react-native-firebase/firestore';
 
 import styles from './styles';
@@ -10,8 +10,9 @@ import {useDispatch, useSelector} from 'react-redux';
 import {setTasks} from '../../../store/tasks';
 import StatusCard from '../../../components/StatusCard';
 import moment from 'moment';
+import {Text} from 'react-native-reanimated/lib/typescript/Animated';
 
-const Home = () => {
+const Home = ({navigation}) => {
   const user = useSelector(state => state.user.data);
   const tasks = useSelector(state => state.tasks.data);
   const toUpdate = useSelector(state => state.tasks.toUpdate);
@@ -81,6 +82,16 @@ const Home = () => {
           />
           <StatusCard label="Quick Win" count={counts?.quickWin} />
         </View>
+
+        <TouchableOpacity
+          style={styles.box}
+          onPress={() => navigation.navigate('Tasks')}>
+          <Text style={styles.title}>Check all my Tasks</Text>
+          <Text style={styles.subTitle}>
+            See all Tasks and filter them by categories you have selected when
+            creating them
+          </Text>
+        </TouchableOpacity>
       </ScrollView>
 
       <PlusIcon />
