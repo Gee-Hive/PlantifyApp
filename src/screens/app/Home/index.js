@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {SafeAreaView, ScrollView} from 'react-native';
+import {SafeAreaView, ScrollView, View} from 'react-native';
 import firestore from '@react-native-firebase/firestore';
 
 import styles from './styles';
@@ -8,6 +8,7 @@ import PlusIcon from '../../../components/PlusIcon';
 import Title from '../../../components/Title';
 import {useDispatch, useSelector} from 'react-redux';
 import {setTasks} from '../../../store/tasks';
+import StatusCard from '../../../components/StatusCard';
 
 const Home = () => {
   const user = useSelector(state => state.user.data);
@@ -46,6 +47,12 @@ const Home = () => {
 
       <ScrollView>
         <Title type="thin">Daily Tasks</Title>
+
+        <View style={styles.row}>
+          <StatusCard label="High Priority" count={3} />
+          <StatusCard label="Due Deadline" type="error" count={3} />
+          <StatusCard label="Quick Win" count={1} />
+        </View>
       </ScrollView>
 
       <PlusIcon />
